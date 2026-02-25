@@ -1,0 +1,35 @@
+/* Couleurs globales */
+:root {
+  --brun-fonce: #A67C52; 
+  --bleu-pale: #5A7D9A; 
+  --brun-clair: #D9C2A7; 
+  --vert: #8A9A5B; 
+  --creme: #F5F5DC; 
+}
+
+/* Typographies */
+// Variables pour Druk
+$druk-medium: 500;
+$druk-bold: 700;
+$druk-heavy: 800;
+$druk-super: 900;
+// Inter Tight – weights
+$inter-light: 300;
+$inter-regular: 400;
+$inter-medium: 500;
+$inter-bold: 700;
+
+
+// Variables CSS (pour les exposer et les animer si besoin)
+:root {
+  --druk-medium: #{$druk-medium};
+  --druk-bold: #{$druk-bold};
+  --druk-heavy: #{$druk-heavy};
+  --druk-super: #{$druk-super};
+
+  --inter-light: #{$inter-light};
+  --inter-regular: #{$inter-regular};
+  --inter-medium: #{$inter-medium};
+  --inter-bold: #{$inter-bold};
+}
+
