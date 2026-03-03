@@ -1,0 +1,260 @@
+@charset "UTF-8";
+/* Couleurs globales */
+:root {
+  --brun-fonce: #A67C52;
+  --bleu-pale: #5A7D9A;
+  --brun-clair: #D9C2A7;
+  --vert: #8A9A5B;
+  --creme: #F5F5DC;
+}
+
+/* Typographies */
+:root {
+  --druk-medium: 500;
+  --druk-bold: 700;
+  --druk-heavy: 800;
+  --druk-super: 900;
+  --inter-light: 300;
+  --inter-regular: 400;
+  --inter-medium: 500;
+  --inter-bold: 700;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: fixed;
+  top: 0;
+  left: 20px;
+  margin-top: 20px;
+  font-size: 0.9em;
+  font-family: var(--inter-regular);
+  color: var(--creme);
+}
+.control p {
+  margin: 2px 0;
+  opacity: 0.3;
+}
+
+/* Crédits et contact en bas à gauche, réutilise le style de .control */
+.credits,
+.contact {
+  position: fixed;
+  font-size: 0.9em;
+  font-family: var(--inter-regular);
+  color: var(--creme);
+  background: transparent;
+  pointer-events: auto;
+  opacity: 0.5;
+}
+
+.credits {
+  bottom: 40px;
+  left: 20px;
+}
+
+.contact {
+  bottom: 40px;
+  left: 80px;
+}
+
+/* rendre le curseur indiquant qu'on peut cliquer */
+.credits {
+  cursor: pointer;
+}
+
+.credits h1,
+.contact h1 {
+  margin: 0;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: var(--creme);
+  opacity: 0.85;
+}
+
+.credits p,
+.contact p {
+  margin: 2px 0;
+  opacity: 0.6;
+  font-size: 0.85em;
+}
+
+/* Masquer le paragraphe de contact par défaut, l'afficher quand .contact a la classe .show */
+.contact {
+  cursor: pointer;
+}
+
+.contact p {
+  display: none;
+}
+
+.contact.show p {
+  display: block;
+}
+
+/* Bulle animée partant du texte contact */
+.contact-bubble {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  /* border-radius per-corner: top-left top-right bottom-right bottom-left */
+  border-radius: 18px 36px 90px 12px;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+  transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s, opacity 0.4s;
+  will-change: width, height, transform, opacity;
+}
+
+/* Étincelles */
+.contact-spark {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  /* couleur principale des étincelles mise à #5A7D9A */
+  background: radial-gradient(circle at 30% 30%, #7499b8, rgba(134, 168, 196, 0.7) 60%, rgba(108, 147, 178, 0) 100%);
+  box-shadow: 0 0 8px rgba(159, 178, 193, 0.9);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%) scale(1);
+  will-change: transform, opacity;
+}
+
+@font-face {
+  font-family: "Druk";
+  src: url("./assets/fonts/Druk-Medium-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Druk";
+  src: url("./assets/fonts/Druk-MediumItalic-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Druk";
+  src: url("./assets/fonts/Druk-Bold-Trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Druk";
+  src: url("./assets/fonts/Druk-BoldItalic-Trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Druk";
+  src: url("./assets/fonts/Druk-Heavy-Trial.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Druk";
+  src: url("./assets/fonts/Druk-HeavyItalic-Trial.otf") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Druk";
+  src: url("./assets/fonts/Druk-Super-Trial.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Druk";
+  src: url("./assets/fonts/Druk-SuperItalic-Trial.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter Tight";
+  src: url("./assets/fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter Tight";
+  src: url("./assets/fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+}
+
+#title {
+  position: relative;
+  display: flex;
+  /* animation continue sans saut : va/retour (alternate) */
+  align-items: center;
+  color: var(--creme);
+  font-size: clamp(2rem, 5vw, 4rem);
+  transform: none;
+  text-align: center;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: var(--inter-regular);
+  background-size: 200%;
+  background-clip: text;
+  padding: 10px 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+@keyframes shine {
+  from {
+    background-position: 200%;
+  }
+  to {
+    background-position: 0%;
+  }
+}
+/* Restauration du style pour l'élément #instructions */
+#instructions {
+  color: var(--creme);
+  font-size: 1.2rem;
+  margin: 15rem 0 0 0;
+  text-align: center;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: var(--inter-regular);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--creme), transparent, var(--creme));
+  background-size: 200%;
+  background-clip: text;
+  overflow: hidden;
+  animation: shine 8s linear infinite;
+}/*# sourceMappingURL=style.css.map */
